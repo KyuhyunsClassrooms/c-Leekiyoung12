@@ -1,36 +1,32 @@
-#include <stdio.h>
+#include<stdio.h>
 
-/*
-    1. [설계]에서 정의한 변수, 배열, (필요하면) 구조체를 여기에 선언하세요.
+struct Student {
+    char name[20];
+    int score;
+    int grade=1;
     
-    예시 - 배열 사용:
-    char names[100][20];
-    int scores[100];
-    int count = 0;
-    
-    예시 - 구조체 사용 (선택):
-    struct Student {
-        char name[20];
-        int score;
-    };
-    struct Student students[100];
-*/
+};
+int main(){
+int n;
+int count = 0;
+int target;
+scanf("%d,&n);
+struct Student students[n];  
 
+for(int i=0;i<n;i++){
+    scanf("%s",&students[i].name);
+    scanf("%d",&students[i].score);
+}
 
-/*
-    2. [알고리즘]에서 설계한 핵심 기능 함수들을 여기에 선언하세요.
-*/
+for(int i=0;i<n;i++){
+    for(int j=0;j<n;j++){
+        if(students[i].score <students[j].score){
+            students[i].grade++;
+        }
+    }
+    count+=students[i].score; 
 
-
-int main() {
-    
-    printf("--- C언어 미니 프로젝트 시작! ---\n");
-
-    /*
-        3. [알고리즘]에서 설계한 main 함수의 흐름을
-           여기에 C언어로 자유롭게 구현하세요.
-    */
-    
-    
-    return 0;
+}
+scanf("%d",&target);
+printf("%d %d / %d",count/n,students[target-1 ].grade,n );
 }
