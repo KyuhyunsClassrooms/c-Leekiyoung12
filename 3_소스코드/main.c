@@ -3,19 +3,20 @@
 struct Student {
     char name[20];
     int score;
-    int grade=1;
+    int grade;
     
 };
 int main(){
 int n;
 int count = 0;
-int target;
-scanf("%d,&n);
+char target[20];
+scanf("%d",&n);
 struct Student students[n];  
 
 for(int i=0;i<n;i++){
     scanf("%s",&students[i].name);
     scanf("%d",&students[i].score);
+    students[i].grade =1;
 }
 
 for(int i=0;i<n;i++){
@@ -27,6 +28,11 @@ for(int i=0;i<n;i++){
     count+=students[i].score; 
 
 }
-scanf("%d",&target);
-printf("%d %d / %d",count/n,students[target-1 ].grade,n );
+scanf("%s",target);
+for(int i=0;i<n;i++){
+if(students[i].name == target){
+    printf("%d %d ",count/n,students[i].grade );
+}
+}
+
 }
