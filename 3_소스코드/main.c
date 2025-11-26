@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<string.h>
 
 struct Student {
     char name[20];
@@ -11,7 +12,7 @@ int n;
 int count = 0;
 char target[20];
 scanf("%d",&n);
-struct Student students[n];  
+struct Student students[n];  	
 
 for(int i=0;i<n;i++){
     scanf("%s",&students[i].name);
@@ -30,8 +31,8 @@ for(int i=0;i<n;i++){
 }
 scanf("%s",target);
 for(int i=0;i<n;i++){
-if(students[i].name == target){
-    printf("%d %d ",count/n,students[i].grade );
+if(strcmp(students[i].name, target) == 0){
+    printf("%d %d / %d ",count/n,students[i].grade ,n);	
 }
 }
 
